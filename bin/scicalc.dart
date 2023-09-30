@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:scicalc/scicalc.dart' as scicalc;
+import 'package:scicalc/calculations.dart' as calc;
 
 void main(List<String> arguments) {
   print('    ==================== Calculadora ====================');
@@ -18,24 +18,28 @@ void main(List<String> arguments) {
 
   var line = stdin.readLineSync(encoding: utf8);
   var operation = line ?? "Operação não suportada";
-  var resultado = 0.0;
+  double? resultado = 0.0;
   switch (operation) {
     case "1":
-      resultado = scicalc.sum();
+      resultado = calc.sum();
       print(resultado);
     case "2":
-      resultado = scicalc.sub();
+      resultado = calc.sub();
       print(resultado);
-    /* case "3":
-      time();
+    case "3":
+      resultado = calc.mult();
+      print(resultado);
     case "4":
-      division();
+      resultado = calc.div();
+      print(resultado);
     case "5":
-      exp("2");
+      resultado = calc.exp("5");
+      print(resultado);
     case "6":
-      exp(n);
-    case "7":
-      sqrt();
+      resultado = calc.exp("6");
+      print(resultado);
+    /* case "7":
+      sqrt();    
     case "8":
       sqrt(n);
     case "9":
